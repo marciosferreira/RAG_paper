@@ -1,0 +1,25 @@
+torch
+torchvision
+torchaudio
+transformers==4.46.3
+bitsandbytes
+accelerate
+sentence-transformers
+langchain
+faiss-cpu
+pyarrow  # for embeddings generation only
+langgraph
+pandas # for embeddings generation only
+matplotlib
+plotly
+arize-phoenix
+rank-bm25
+python-dotenv
+openai
+#llama-index
+rapidfuzz
+spacy
+langchain_huggingface
+langchain-community
+pyyaml
+whisper

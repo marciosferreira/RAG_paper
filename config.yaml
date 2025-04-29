@@ -1,0 +1,23 @@
+project_path: "/home/jovyan/ai_cube_gen_ai"
+weights:
+  id: "meta-llama/Llama-3.1-8B-Instruct"
+  embedding_id: "thenlper/gte-large"
+  llm_model_path: "/models/weights/llm"
+  embeddings_path: "models/weights/embeddings"
+
+paths:
+  markdown_file: "data_ingestion/output/Tesla_Owners_Manual-with-image-refs_descrito_nf.md"
+  parent_json: "data_ingestion/parent_resulting_json/geral_parent.json"
+  child_json: "data_ingestion/child_resulting_json/general_child.json"
+  faiss_index: "data_ingestion/faiss_index/"
+  faiss_index_path_config: "faiss_index"
+  pdf_indice: "data_ingestion/resulting_index/general_index.txt"
+
+retriever:
+  use_parent: true
+
+embeddings:
+  use_cosine_similarity: true
+
+tracing:
+  phoenix_arize: true

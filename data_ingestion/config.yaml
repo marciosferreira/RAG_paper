@@ -1,0 +1,47 @@
+# Folder Path to the PDFs
+pdf_path: "pdfs/"
+
+# Output directory for generated files
+output_dir: "output"
+
+# Path to the Markdown file generated after PDF conversion
+markdown_file_name: "md-with-image-refs.md"
+
+# Paths for the parent and child JSON chunk files
+parent_json_path: "parent_resulting.json"
+child_json_path: "child_resulting.json"
+
+# Paths for concatenated parent_json
+resulting_parent_json_path: "parent_resulting_json"
+
+# Paths for concatenated child_json
+resulting_child_json_path: "child_resulting_json"
+
+# Path for the FAISS index
+faiss_index_path: "faiss_index"
+
+# Path to the model's embedding weights
+model_embeddings_path: "/models/weights/embeddings"
+
+# Repository ID for embeddings
+repo_id: "/models/weights/embeddings"
+
+# Embeddings repository ID (alternative)
+embeddings_repo_id: "thenlper/gte-large"
+
+# Use the parent retriever (for FAISS or other indices)
+use_parent_retriever: true
+
+# Path to save the PDF index
+name_tosave_index: "pdf_indice.txt"
+
+# final path for genral index
+path_tosave_index: "resulting_index"
+
+# Vision model repository ID (LLama)
+# It can be be "Salesforce/blip-image-captioning-base" or "meta-llama/Llama-3.2-11B-Vision-Instruct"
+model_vision_repo_id: "meta-llama/Llama-3.2-11B-Vision-Instruct"
+
+# Path to the vision model
+# It can be "/models/weights/vision_llama" or "/models/weights/vision_llama". Must match the above field.
+model_vision_path: "/models/weights/vision_llama"

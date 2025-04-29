@@ -1,0 +1,125 @@
+📋 Relatório Completo do Projeto RAG - AI Cube (Jan - Abril 2025)
+1. Equipe
+Marcio Ferreira – Senior Machine Learning Analyst (Owner)
+
+Suayder – Senior Machine Learning Engineer
+
+Jorge Neto – Junior Full Stack Developer
+
+Manoel – Adicionado posteriormente à equipe (abril)
+
+2. Ferramentas e Tecnologias Usadas
+
+Área	Ferramenta/Modelo	Descrição
+Document Splitter	LangChain RecursiveCharacterTextSplitter	Divisão de documentos em chunks pequenos (500 caracteres com sobreposição de 100)​
+.
+Embeddings	HuggingFace sentence-transformers/gtr-t5-large	Geração de embeddings semânticos​
+.
+Base de Vetores	FAISS (via LangChain)	Indexação e busca semântica rápida​
+​
+.
+Modelo LLM	LLama 3.1-8B-it (4bit)	Geração de respostas com baixo uso de memória​
+.
+Modelo Visão	LLama-3.2-11B-Vision-Instruct	Geração de descrições de imagens​
+​
+.
+Modelo Alternativo Visão	Qwen2.5-VL-3B-Instruct	Modelo alternativo para descrever imagens​
+.
+Markdown Tools	Docling	Conversão de documentos para Markdown, extraindo textos e imagens​
+​
+.
+Docker	Docker Container	Empacotamento e deploy estável do sistema​
+.
+Speech-to-Text	Pesquisa em andamento (Whisper e outros modelos)	Para transformar consultas de voz em texto​
+.
+Multimodal Search	CLIP model	Testes de recuperação de imagens diretamente a partir de descrições​
+.
+3. Funcionalidades e Abordagens Desenvolvidas
+🔹 3.1 Ingestão e Indexação
+Pipeline estruturado para ingestão de PDFs e documentos Word (.doc, .docx).
+
+Criação automática de índices de documentos usando Docling.
+
+Extração e descrição automática de imagens durante a ingestão​
+.
+
+🔹 3.2 Modificação da Query para Melhorar o RAG
+Refinamento automático da query para alinhar melhor a busca com o conteúdo dos documentos​
+.
+
+Geração de queries específicas a partir de uma entrada genérica, exemplo:
+
+Entrada: "I have a flat tire. What should I do?"
+
+Modificada para: "Maintenance (Tire Care and Maintenance), Maintenance (Temporary Tire Repair Kit)"​
+.
+
+🔹 3.3 Image Retrieval (Recuperação de Imagens)
+Extração dos paths de imagens durante a divisão do documento​
+.
+
+Geração de descrições automáticas de imagens usando LLama-3.2-11B-Vision-Instruct​
+​
+.
+
+Testes de ranking de imagens com CLIP para avaliar recuperação semântica direta​
+.
+
+🔹 3.4 Speech-to-Text
+Início da pesquisa de integração de áudio:
+
+Modelos analisados: Whisper 1​
+.
+
+Desafios identificados: reconhecimento de termos desconhecidos como "Pixsee", pequeno corpus de teste​
+.
+
+Foco: Permitir que usuários façam perguntas por voz futuramente.
+
+🔹 3.5 Infraestrutura e Deploy
+Containerização via Docker:
+
+O sistema inteiro pode ser implantado de forma consistente em qualquer ambiente​
+.
+
+Facilita updates e escalabilidade.
+
+4. Fluxo de Funcionamento do Sistema (Simplificado)
+mermaid
+Copiar
+Editar
+flowchart LR
+    A[Ingestão de Documento] --> B[Divisão em Chunks (Texto + Imagens)]
+    B --> C[Embeddings - FAISS]
+    A --> D[Descrições de Imagens]
+    C --> E[Consulta Semântica]
+    D --> E
+    F[Usuário faz Consulta (Texto ou Voz)]
+    F --> G[Query Modificada]
+    G --> E
+    E --> H[LLM Gera Resposta com Contexto]
+    H --> I[Resposta Final + Imagens Relevantes]
+5. Resultados Obtidos
+
+Área	Resultados / Melhorias
+Busca textual	Recuperação de chunks mais relevantes com query refinement​
+
+Imagens	As imagens certas foram associadas corretamente com textos em mais de 80% dos casos​
+
+Desempenho FAISS	Testes de performance com bilhões de vetores, ótima escalabilidade​
+
+Deploy	Sistema agora dockerizado, reduzindo erros em instalação​
+
+Speech-to-Text	Estudo iniciado; precisando de corpus maior para ajuste fino​
+
+
+Implementar de forma prática o speech-to-text com validação em tempo real​
+
+
+Melhorar ainda mais a qualidade das descrições e alinhamento semântico entre texto e imagens.
+
+Otimizar a infraestrutura para model serving eficiente​
+
+✅ Resumo Final
+O projeto evoluiu de uma base tradicional de RAG para um sistema multimodal, modular, containerizado e preparado para lidar com texto, imagens e voz, tornando-se altamente genérico e escalável.
+O uso de refinamento de queries, descrição automática de imagens e modularização via Docker representam grandes avanços.

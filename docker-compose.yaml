@@ -1,0 +1,13 @@
+services:
+  genai-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: genai-rag
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped
+    volumes:
+      - ./:/home/jovyan/GenAI
