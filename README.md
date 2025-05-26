@@ -1,5 +1,3 @@
-# AI_cube-pre release version 0.2
-
 # Introduction
 
 This project implements a Retrieval-Augmented Generation (RAG) architecture. The system is designed to leverage a Small Language Model (SLM) locally to answer questions across any knowledge domain efficiently.
@@ -81,18 +79,6 @@ data_ingestion/
 To talk with the LLM about your pdf, after ingesting it, just type `python main.py --query`, a chat in the terminal will be open
 
 > Warning: check the file config.yaml
-
-## Nexts steps on this code
-
-- [x] serve the models and deatch them from the main process
-- [ ] serve whisper model
-- [x] create the environment in a docker image
-- [x] Integrate the pipeline for ingestion of new data
-- [ ] Integrade the pipeline for ingestion of many pdfs at once
-- [ ] Integrate the pipeline of image search
-- [ ] Integrate the pipeline for sound2text
-- [ ] Refactor the code to modularize the nodes code
-
 
 
 ## Important Conditions for Commercial Use of Llama models:
